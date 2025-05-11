@@ -1,3 +1,4 @@
+/* ======= ESTILOS BASE ======= */
 body, html {
   margin: 0;
   padding: 0;
@@ -31,39 +32,63 @@ body, html {
   z-index: 1;
 }
 
-/* ====== EFECTO DE FONDO EN EL UMBRAL ====== */
+/* ======= UMBRAL: FONDO ANIMADO CON RESPLANDORES ======= */
 #umbral {
+  position: relative;
   background-color: #000;
   overflow: hidden;
 }
 
-#umbral::before {
+#umbral::before,
+#umbral::after {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at 30% 30%, rgba(124, 58, 237, 0.2), transparent 40%),
-              radial-gradient(circle at 70% 70%, rgba(212, 175, 55, 0.15), transparent 40%);
-  animation: fondoMistico 10s linear infinite;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: screen;
   z-index: 0;
 }
 
-@keyframes fondoMistico {
-  0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(1.05); }
-  100% { transform: rotate(360deg) scale(1); }
+#umbral::before {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.2) 0%, transparent 80%);
+  top: 20%;
+  left: 10%;
+  animation: resplandorVioleta 20s linear infinite alternate;
 }
 
-/* ====== FÉNIX ====== */
+#umbral::after {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 80%);
+  bottom: 15%;
+  right: 10%;
+  animation: resplandorDorado 25s linear infinite alternate;
+}
+
+@keyframes resplandorVioleta {
+  0%   { transform: translate(0, 0) scale(1); opacity: 0.5; }
+  50%  { transform: translate(40px, -30px) scale(1.2); opacity: 0.7; }
+  100% { transform: translate(-20px, 20px) scale(1); opacity: 0.4; }
+}
+
+@keyframes resplandorDorado {
+  0%   { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  50%  { transform: translate(-30px, 20px) scale(1.1); opacity: 0.6; }
+  100% { transform: translate(10px, -20px) scale(1); opacity: 0.3; }
+}
+
+/* ======= FÉNIX ANIMADO ======= */
 .simbolo-fenix {
   width: 60vw;
   max-width: 700px;
   height: auto;
   cursor: pointer;
-  transition: transform 0.4s ease, filter 0.4s ease;
   filter: drop-shadow(0 0 20px violet);
+  opacity: 0;
+  transform: scale(0.8);
+  animation: entradaFenix 2s ease-out forwards;
 }
 
 .simbolo-fenix:hover {
@@ -71,7 +96,22 @@ body, html {
   filter: drop-shadow(0 0 30px gold);
 }
 
-/* ====== CENIZAS, FUEGO, LLAMA, RENACER (resumido) ====== */
+@keyframes entradaFenix {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ======= SIGILO PARA PASAR DE CENIZAS A FUEGO ======= */
 .sigilo {
   width: 60px;
   height: 60px;
@@ -87,6 +127,7 @@ body, html {
   box-shadow: 0 0 30px #d4af37aa;
 }
 
+/* ======= LLAMAS EN EL FUEGO ======= */
 .llamas {
   display: flex;
   gap: 2rem;
@@ -94,6 +135,7 @@ body, html {
   margin-top: 2rem;
   flex-wrap: wrap;
 }
+
 .llama {
   width: 120px;
   height: 120px;
@@ -113,6 +155,7 @@ body, html {
   box-shadow: 0 0 30px #d4af37aa;
 }
 
+/* ======= LLAMA INTERNA ======= */
 .intenciones {
   display: flex;
   gap: 1.5rem;
@@ -134,6 +177,7 @@ body, html {
   color: #000;
 }
 
+/* ======= VISIÓN ======= */
 #vision-mensaje {
   margin-top: 1.2rem;
   max-width: 600px;
@@ -142,6 +186,7 @@ body, html {
   line-height: 1.6;
 }
 
+/* ======= RENACER ======= */
 form {
   margin-top: 1.5rem;
   display: flex;
