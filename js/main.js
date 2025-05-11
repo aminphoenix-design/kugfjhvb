@@ -1,12 +1,27 @@
-
 document.addEventListener("DOMContentLoaded", () => {
-  const fenix = document.querySelector(".simbolo-fenix");
   const umbral = document.getElementById("umbral");
   const cenizas = document.getElementById("cenizas");
   const fuego = document.getElementById("fuego");
+  const llamaInterna = document.getElementById("llama-interna");
+  const vision = document.getElementById("vision");
+  const renacer = document.getElementById("renacer");
+
+  const fenix = document.querySelector(".simbolo-fenix");
   const sigilo = document.getElementById("irAlFuego");
+  const llamas = document.querySelectorAll(".llama");
+  const intencionButtons = document.querySelectorAll(".intencion");
+
+  const visionTitulo = document.getElementById("vision-titulo");
+  const visionMensaje = document.getElementById("vision-mensaje");
   const music = document.getElementById("bg-music");
 
+  const mensajes = {
+    poder: "El fuego que elegiste consume lo viejo y forja lo indestructible. Ahora portas la llama de los que transforman el mundo.",
+    claridad: "Como el cristal entre las llamas, ahora ves sin sombras. Tu marca emergerá con propósito y dirección.",
+    deseo: "Lo que arde en tu interior alimentará las memorias de quienes toquen tu esencia. Has elegido cautivar."
+  };
+
+  // Ir del Umbral a Las Cenizas
   fenix.addEventListener("click", () => {
     umbral.classList.remove("activa");
     cenizas.classList.add("activa");
@@ -15,57 +30,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Ir de Las Cenizas a El Fuego
   sigilo.addEventListener("click", () => {
     cenizas.classList.remove("activa");
     fuego.classList.add("activa");
   });
-});
 
-  const intencionButtons = document.querySelectorAll(".intencion");
-
-  document.querySelectorAll(".llama").forEach(llama => {
+  // Ir de El Fuego a La Llama Interna
+  llamas.forEach(llama => {
     llama.addEventListener("click", () => {
       fuego.classList.remove("activa");
-      document.getElementById("llama-interna").classList.add("activa");
+      llamaInterna.classList.add("activa");
     });
   });
 
+  // Ir de La Llama Interna a La Visión personalizada
   intencionButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       const camino = btn.getAttribute("data-camino");
-      console.log("Camino elegido:", camino);
-      alert("Has elegido renacer con " + camino.charAt(0).toUpperCase() + camino.slice(1));
-      // Aquí puedes continuar hacia otra sección (como "La Visión" o "El Renacer")
-    });
-  });
-
-  const vision = document.getElementById("vision");
-  const visionTitulo = document.getElementById("vision-titulo");
-  const visionMensaje = document.getElementById("vision-mensaje");
-
-  const mensajes = {
-    poder: "El fuego que elegiste consume lo viejo y forja lo indestructible. Ahora portas la llama de los que transforman el mundo.",
-    claridad: "Como el cristal entre las llamas, ahora ves sin sombras. Tu marca emergerá con propósito y dirección.",
-    deseo: "Lo que arde en tu interior alimentará las memorias de quienes toquen tu esencia. Has elegido cautivar."
-  };
-
-  intencionButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const camino = btn.getAttribute("data-camino");
-      document.getElementById("llama-interna").classList.remove("activa");
+      llamaInterna.classList.remove("activa");
       vision.classList.add("activa");
       visionTitulo.textContent = "Has elegido: " + camino.charAt(0).toUpperCase() + camino.slice(1);
       visionMensaje.textContent = mensajes[camino] || "Tu visión está por revelarse...";
     });
   });
 
+  // Ir de La Visión a El Renacer al hacer clic en el mensaje
   visionMensaje.addEventListener("click", () => {
     vision.classList.remove("activa");
-    document.getElementById("renacer").classList.add("activa");
+    renacer.classList.add("activa");
   });
 
+  // Formulario de Renacer
   document.getElementById("form-renacer").addEventListener("submit", (e) => {
     e.preventDefault();
     alert("Tu intención ha sido enviada al fuego. Serás recordado.");
     e.target.reset();
   });
+});
