@@ -16,6 +16,7 @@ body, html {
   height: 100vh;
   text-align: center;
   background-color: #000;
+  position: relative;
 }
 
 .pantalla.activa {
@@ -26,8 +27,36 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
+/* ====== EFECTO DE FONDO EN EL UMBRAL ====== */
+#umbral {
+  background-color: #000;
+  overflow: hidden;
+}
+
+#umbral::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(124, 58, 237, 0.2), transparent 40%),
+              radial-gradient(circle at 70% 70%, rgba(212, 175, 55, 0.15), transparent 40%);
+  animation: fondoMistico 10s linear infinite;
+  z-index: 0;
+}
+
+@keyframes fondoMistico {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* ====== FÉNIX ====== */
 .simbolo-fenix {
   width: 60vw;
   max-width: 700px;
@@ -42,6 +71,7 @@ body, html {
   filter: drop-shadow(0 0 30px gold);
 }
 
+/* ====== CENIZAS, FUEGO, LLAMA, RENACER (resumido) ====== */
 .sigilo {
   width: 60px;
   height: 60px;
@@ -52,7 +82,6 @@ body, html {
   cursor: pointer;
   transition: transform 0.5s ease;
 }
-
 .sigilo:hover {
   transform: scale(1.1);
   box-shadow: 0 0 30px #d4af37aa;
@@ -65,7 +94,6 @@ body, html {
   margin-top: 2rem;
   flex-wrap: wrap;
 }
-
 .llama {
   width: 120px;
   height: 120px;
@@ -79,7 +107,6 @@ body, html {
   cursor: pointer;
   transition: all 0.5s ease;
 }
-
 .llama:hover {
   transform: scale(1.1);
   background: radial-gradient(circle at center, #d4af37 0%, #000 70%);
@@ -93,7 +120,6 @@ body, html {
   flex-wrap: wrap;
   justify-content: center;
 }
-
 .intencion {
   background: none;
   border: 2px solid #d4af37;
@@ -103,7 +129,6 @@ body, html {
   cursor: pointer;
   transition: background 0.3s ease, color 0.3s ease;
 }
-
 .intencion:hover {
   background: #d4af37;
   color: #000;
@@ -125,14 +150,12 @@ form {
   width: 100%;
   max-width: 400px;
 }
-
 input, textarea {
   padding: 0.6rem;
   background: #111;
   border: 1px solid #444;
   color: #fff;
 }
-
 button.enviar {
   background: #7c3aed;
   border: none;
@@ -141,7 +164,6 @@ button.enviar {
   color: #fff;
   transition: background 0.3s ease;
 }
-
 button.enviar:hover {
   background: #d4af37;
   color: #000;
