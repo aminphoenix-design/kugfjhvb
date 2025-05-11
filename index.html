@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhoenixFrame</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Sección inicial: El Umbral -->
+  <section id="umbral" class="pantalla activa">
+    <div class="contenido-central">
+      <img src="assets/images/phoenix-symbol.svg" alt="Símbolo del Fénix" class="simbolo-fenix" />
+      <p class="texto-invocacion">Toca el fuego para entrar</p>
+    </div>
+  </section>
+
+  <!-- Sección 2: Las Cenizas -->
+  <section id="cenizas" class="pantalla">
+    <div class="contenido-central">
+      <h1>Todo lo que no arde, muere.</h1>
+      <p>El olvido cubre lo que una vez brilló. Solo el fuego puede recordarles quiénes fueron.</p>
+      <div class="sigilo" id="irAlFuego" title="Despertar el fuego"></div>
+    </div>
+  </section>
+
+  <!-- Sección 3: El Fuego -->
+  <section id="fuego" class="pantalla">
+    <div class="contenido-central">
+      <h1>El fuego revela. El fuego transforma.</h1>
+      <div class="llamas">
+        <div class="llama">Digital</div>
+        <div class="llama">Físico</div>
+        <div class="llama">Experiencias</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 4: La Llama Interna -->
+  <section id="llama-interna" class="pantalla">
+    <div class="contenido-central">
+      <h1>Elige tu llama</h1>
+      <p>¿Con qué fuego deseas renacer?</p>
+      <div class="intenciones">
+        <button class="intencion" data-camino="poder">Poder</button>
+        <button class="intencion" data-camino="claridad">Claridad</button>
+        <button class="intencion" data-camino="deseo">Deseo</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 5: La Visión -->
+  <section id="vision" class="pantalla">
+    <div class="contenido-central">
+      <h1 id="vision-titulo">Visión</h1>
+      <p id="vision-mensaje">Aquí aparecerá tu visión según tu fuego elegido.</p>
+    </div>
+  </section>
+
+  <!-- Sección 6: El Renacer -->
+  <section id="renacer" class="pantalla">
+    <div class="contenido-central">
+      <h1>Tu llama está lista</h1>
+      <p>Completa el ritual y deja tu intención en las cenizas.</p>
+      <form id="form-renacer">
+        <input type="text" name="nombre" placeholder="Tu nombre" required />
+        <input type="tel" name="telefono" placeholder="Tu número de teléfono" required />
+        <textarea name="razon" placeholder="¿Por qué deberíamos permitirte renacer?" rows="4" required></textarea>
+        <button type="submit" class="enviar">Enviar al fuego</button>
+      </form>
+    </div>
+  </section>
+
+  <audio id="bg-music" src="sounds/ambient.mp3" loop preload="auto"></audio>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
