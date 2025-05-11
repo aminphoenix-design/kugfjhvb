@@ -35,11 +35,20 @@ body, html {
   cursor: pointer;
   transition: transform 0.4s ease, filter 0.4s ease;
   filter: drop-shadow(0 0 20px violet);
+  opacity: 0;
+  transform: scale(0.8);
+  animation: entradaFenix 2s ease-out forwards;
 }
 
 .simbolo-fenix:hover {
   transform: scale(1.2);
   filter: drop-shadow(0 0 30px gold);
+}
+
+@keyframes entradaFenix {
+  0% { opacity: 0; transform: scale(0.8); }
+  60% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
 .sigilo {
@@ -146,22 +155,14 @@ button.enviar:hover {
   background: #d4af37;
   color: #000;
 }
-/* ======== El Umbral ======== */
+
+/* El Umbral: fondo resplandores */
 #umbral {
   position: relative;
   background-color: #000;
   overflow: hidden;
 }
 
-/* Contenedor de partículas */
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-/* Resplandores violetas y dorados */
 #umbral::before,
 #umbral::after {
   content: "";
@@ -202,24 +203,32 @@ button.enviar:hover {
   100% { transform: translate(10px, -20px) scale(1); opacity: 0.3; }
 }
 
-/* Animación de aparición del Fénix */
-.simbolo-fenix {
-  opacity: 0;
-  transform: scale(0.8);
-  animation: entradaFenix 2s ease-out forwards;
+/* Partículas */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
-@keyframes entradaFenix {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  60% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+/* 🔮 Fondo místico CSS puro */
+.fondo-mistico {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 40%, rgba(124, 58, 237, 0.15), transparent 60%),
+              radial-gradient(circle at 70% 60%, rgba(212, 175, 55, 0.1), transparent 70%),
+              radial-gradient(circle at 50% 90%, rgba(255, 255, 255, 0.05), transparent 80%);
+  animation: fuegoMistico 20s ease-in-out infinite;
+  z-index: -2;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+@keyframes fuegoMistico {
+  0%   { transform: scale(1) translate(0, 0); opacity: 0.5; }
+  50%  { transform: scale(1.05) translate(-2%, -1%); opacity: 0.65; }
+  100% { transform: scale(1) translate(0, 0); opacity: 0.5; }
 }
