@@ -1,14 +1,12 @@
-/* ====== ESTILOS BASE ====== */
 body, html {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  background-color: #000;
   font-family: 'Georgia', serif;
-  color: white;
+  background-color: #000;
+  color: #fff;
   overflow: hidden;
-  cursor: url('../assets/images/cursor-fire.png'), auto;
 }
 
 .pantalla {
@@ -16,11 +14,8 @@ body, html {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100%;
   text-align: center;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: #000;
 }
 
 .pantalla.activa {
@@ -33,30 +28,18 @@ body, html {
   align-items: center;
 }
 
-/* ====== EL UMBRAL ====== */
-#umbral {
-  background-image: url('../assets/images/bg-umbral.jpg');
-}
-
 .simbolo-fenix {
-  width: 45vw;
-  max-width: 500px;
+  width: 60vw;
+  max-width: 700px;
   height: auto;
   cursor: pointer;
   transition: transform 0.4s ease, filter 0.4s ease;
-  filter: drop-shadow(0 0 10px violet);
+  filter: drop-shadow(0 0 20px violet);
 }
 
 .simbolo-fenix:hover {
   transform: scale(1.2);
-  filter: drop-shadow(0 0 20px gold);
-}
-
-/* ====== LAS CENIZAS ====== */
-#cenizas {
-  background: radial-gradient(circle at center, #0a0a0a 0%, #000000 100%);
-  position: relative;
-  overflow: hidden;
+  filter: drop-shadow(0 0 30px gold);
 }
 
 .sigilo {
@@ -75,7 +58,6 @@ body, html {
   box-shadow: 0 0 30px #d4af37aa;
 }
 
-/* ====== EL FUEGO ====== */
 .llamas {
   display: flex;
   gap: 2rem;
@@ -104,7 +86,6 @@ body, html {
   box-shadow: 0 0 30px #d4af37aa;
 }
 
-/* ====== LA LLAMA INTERNA ====== */
 .intenciones {
   display: flex;
   gap: 1.5rem;
@@ -128,7 +109,6 @@ body, html {
   color: #000;
 }
 
-/* ====== LA VISIÓN ====== */
 #vision-mensaje {
   margin-top: 1.2rem;
   max-width: 600px;
@@ -137,7 +117,6 @@ body, html {
   line-height: 1.6;
 }
 
-/* ====== EL RENACER ====== */
 form {
   margin-top: 1.5rem;
   display: flex;
