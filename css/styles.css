@@ -1,4 +1,4 @@
-
+/* ====== ESTILOS BASE ====== */
 body, html {
   margin: 0;
   padding: 0;
@@ -8,6 +8,7 @@ body, html {
   font-family: 'Georgia', serif;
   color: white;
   overflow: hidden;
+  cursor: url('../assets/images/cursor-fire.png'), auto;
 }
 
 .pantalla {
@@ -15,7 +16,12 @@ body, html {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100%;
   text-align: center;
+  background-color: #000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .pantalla.activa {
@@ -28,21 +34,36 @@ body, html {
   align-items: center;
 }
 
+/* ====== EL UMBRAL ====== */
+#umbral {
+  background-image: url('../assets/images/bg-umbral.jpg');
+}
+
 .simbolo-fenix {
-  width: 150px;
+  width: 180px;
+  max-width: 60vw;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: drop-shadow(0 0 10px violet);
 }
 
 .simbolo-fenix:hover {
-  transform: scale(1.1) rotate(5deg);
-  filter: drop-shadow(0 0 10px violet);
+  transform: scale(1.1) rotate(6deg);
+  filter: drop-shadow(0 0 20px gold);
 }
 
 .texto-invocacion {
   margin-top: 1rem;
+  font-size: 1.3rem;
   color: #c9a0dc;
-  font-size: 1.2rem;
+  text-shadow: 0 0 10px #7c3aed66;
+}
+
+/* ====== LAS CENIZAS ====== */
+#cenizas {
+  background: radial-gradient(circle at center, #0a0a0a 0%, #000000 100%);
+  position: relative;
+  overflow: hidden;
 }
 
 .sigilo {
@@ -55,16 +76,21 @@ body, html {
   cursor: pointer;
   transition: transform 0.5s ease;
 }
+
 .sigilo:hover {
   transform: scale(1.1);
   box-shadow: 0 0 30px #d4af37aa;
 }
+
+/* ====== EL FUEGO ====== */
 .llamas {
   display: flex;
   gap: 2rem;
   justify-content: center;
   margin-top: 2rem;
+  flex-wrap: wrap;
 }
+
 .llama {
   width: 120px;
   height: 120px;
@@ -78,12 +104,14 @@ body, html {
   cursor: pointer;
   transition: all 0.5s ease;
 }
+
 .llama:hover {
   transform: scale(1.1);
   background: radial-gradient(circle at center, #d4af37 0%, #000 70%);
   box-shadow: 0 0 30px #d4af37aa;
 }
 
+/* ====== LA LLAMA INTERNA ====== */
 .intenciones {
   display: flex;
   gap: 1.5rem;
@@ -91,6 +119,7 @@ body, html {
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .intencion {
   background: none;
   border: 2px solid #d4af37;
@@ -100,11 +129,13 @@ body, html {
   cursor: pointer;
   transition: background 0.3s ease, color 0.3s ease;
 }
+
 .intencion:hover {
   background: #d4af37;
   color: #000;
 }
 
+/* ====== LA VISIÓN ====== */
 #vision-mensaje {
   margin-top: 1.2rem;
   max-width: 600px;
@@ -113,6 +144,7 @@ body, html {
   line-height: 1.6;
 }
 
+/* ====== EL RENACER ====== */
 form {
   margin-top: 1.5rem;
   display: flex;
@@ -121,12 +153,14 @@ form {
   width: 100%;
   max-width: 400px;
 }
+
 input, textarea {
   padding: 0.6rem;
   background: #111;
   border: 1px solid #444;
   color: #fff;
 }
+
 button.enviar {
   background: #7c3aed;
   border: none;
@@ -135,6 +169,7 @@ button.enviar {
   color: #fff;
   transition: background 0.3s ease;
 }
+
 button.enviar:hover {
   background: #d4af37;
   color: #000;
