@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     deseo: "Lo que arde en tu interior alimentará las memorias de quienes toquen tu esencia. Has elegido cautivar."
   };
 
-  // Ir del Umbral a Las Cenizas
   fenix.addEventListener("click", () => {
     umbral.classList.remove("activa");
     cenizas.classList.add("activa");
@@ -30,13 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Ir de Las Cenizas a El Fuego
   sigilo.addEventListener("click", () => {
     cenizas.classList.remove("activa");
     fuego.classList.add("activa");
   });
 
-  // Ir de El Fuego a La Llama Interna
   llamas.forEach(llama => {
     llama.addEventListener("click", () => {
       fuego.classList.remove("activa");
@@ -44,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Ir de La Llama Interna a La Visión personalizada
   intencionButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       const camino = btn.getAttribute("data-camino");
@@ -55,13 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Ir de La Visión a El Renacer al hacer clic en el mensaje
   visionMensaje.addEventListener("click", () => {
     vision.classList.remove("activa");
     renacer.classList.add("activa");
   });
 
-  // Formulario de Renacer
   document.getElementById("form-renacer").addEventListener("submit", (e) => {
     e.preventDefault();
     alert("Tu intención ha sido enviada al fuego. Serás recordado.");
